@@ -1,4 +1,5 @@
-// App.jsx
+   
+   // App.jsx
 import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
@@ -16,6 +17,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
+  
   const renderActiveSection = () => {
     switch (activeSection) {
       case 'dashboard':
