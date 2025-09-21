@@ -11,6 +11,7 @@ import RiskEngine from './components/RiskEngine';
 import HealthWearables from './components/HealthWearables';
 import Reports from './components/Reports';
 import Settings from './components/Settings';
+import Efir from './components/EfirSection';
 import { ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
         return <RiskEngine />;
       case 'health':
         return <HealthWearables />;
+      case 'efir':
+        return <Efir />;
       case 'reports':
         return <Reports />;
       case 'settings':
