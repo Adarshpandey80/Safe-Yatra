@@ -437,7 +437,7 @@ const EFIRSection = () => {
             }`}>
               <div className="flex justify-between items-start">
                 <div>
-                  <h4 className="font-medium">{team.id}</h4>
+                  <h4 className="font-medium text-gray-800 dark:text-white">{team.id}</h4>
                   <p className={`text-sm font-medium ${
                     team.status === 'Available' ? 'text-green-600 dark:text-green-400' :
                     team.status === 'Assigned' ? 'text-yellow-600 dark:text-yellow-400' :
@@ -446,15 +446,15 @@ const EFIRSection = () => {
                     {team.status}
                   </p>
                 </div>
-                <span className="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                <span className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-1 rounded">
                   {team.location}
                 </span>
               </div>
               <div className="mt-2">
-                <p className="text-sm text-gray-600 dark:text-gray-400">Team Members:</p>
-                <ul className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                <p className="text-sm text-gray-700 dark:text-gray-300">Team Members:</p>
+                <ul className="text-xs text-gray-600 dark:text-gray-400 mt-1">
                   {team.members.map((member, idx) => (
-                    <li key={idx}>{member}</li>
+                    <li key={idx} className="text-gray-700 dark:text-gray-300">{member}</li>
                   ))}
                 </ul>
               </div>
@@ -488,7 +488,7 @@ const EFIRSection = () => {
                           incident.severity === 'High' ? 'text-orange-500' :
                           'text-yellow-500'
                         }`} />
-                        <span className="font-mono text-sm text-gray-600 dark:text-gray-400">{incident.id}</span>
+                        <span className="font-mono text-sm text-gray-800 dark:text-gray-200">{incident.id}</span>
                       </div>
                       
                       <span className={`px-2 py-1 rounded text-xs font-medium ${getSeverityColor(incident.severity)}`}>
@@ -505,9 +505,9 @@ const EFIRSection = () => {
                       className="p-1 hover:bg-gray-200 dark:hover:bg-gray-600 rounded"
                     >
                       {expandedIncident === incident.id ? (
-                        <ChevronUp className="h-4 w-4" />
+                        <ChevronUp className="h-4 w-4 text-gray-700 dark:text-gray-300" />
                       ) : (
-                        <ChevronDown className="h-4 w-4" />
+                        <ChevronDown className="h-4 w-4 text-gray-700 dark:text-gray-300" />
                       )}
                     </button>
                   </div>
@@ -515,22 +515,22 @@ const EFIRSection = () => {
                   <div className="p-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                       <div className="flex items-center gap-2">
-                        <MapPin className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-                        <span className="text-sm">{incident.location}</span>
+                        <MapPin className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                        <span className="text-sm text-gray-700 dark:text-gray-300">{incident.location}</span>
                       </div>
                       
                       <div className="flex items-center gap-2">
-                        <Clock className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-                        <span className="text-sm">{incident.timestamp}</span>
+                        <Clock className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                        <span className="text-sm text-gray-700 dark:text-gray-300">{incident.timestamp}</span>
                       </div>
                       
                       <div className="flex items-center gap-2">
-                        <User className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-                        <span className="text-sm">{incident.tourist.name} ({incident.tourist.id})</span>
+                        <User className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                        <span className="text-sm text-gray-700 dark:text-gray-300">{incident.tourist.name} ({incident.tourist.id})</span>
                       </div>
                     </div>
                     
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{incident.description}</p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">{incident.description}</p>
                     
                     <div className="flex gap-2 flex-wrap">
                       <button 
@@ -549,12 +549,12 @@ const EFIRSection = () => {
                                 <Ambulance className="h-3 w-3" />
                                 Assign Team
                               </button>
-                              <div className="absolute left-0 mt-1 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 hidden group-hover:block z-10">
+                              <div className="absolute left-0 mt-1 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 hidden group-hover:block z-10 border border-gray-200 dark:border-gray-700">
                                 {availableTeams.map(team => (
                                   <button
                                     key={team.id}
                                     onClick={() => handleAssignTeam(incident.id, team.id)}
-                                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                    className="block w-full text-left px-4 py-2 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
                                   >
                                     {team.id} - {team.location}
                                   </button>
@@ -583,14 +583,14 @@ const EFIRSection = () => {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Tourist Information */}
                         <div>
-                          <h5 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Tourist Information</h5>
+                          <h5 className="font-medium text-gray-800 dark:text-white mb-2">Tourist Information</h5>
                           <div className="space-y-2 text-sm">
-                            <p><span className="font-medium">Name:</span> {incident.tourist.name}</p>
-                            <p><span className="font-medium">ID:</span> {incident.tourist.id}</p>
-                            <p><span className="font-medium">Nationality:</span> {incident.tourist.nationality}</p>
-                            <p><span className="font-medium">Age:</span> {incident.tourist.age}</p>
-                            <p><span className="font-medium">Blood Type:</span> {incident.tourist.bloodType}</p>
-                            <p><span className="font-medium">Allergies:</span> {incident.tourist.allergies}</p>
+                            <p className="text-gray-700 dark:text-gray-300"><span className="font-medium text-gray-800 dark:text-white">Name:</span> {incident.tourist.name}</p>
+                            <p className="text-gray-700 dark:text-gray-300"><span className="font-medium text-gray-800 dark:text-white">ID:</span> {incident.tourist.id}</p>
+                            <p className="text-gray-700 dark:text-gray-300"><span className="font-medium text-gray-800 dark:text-white">Nationality:</span> {incident.tourist.nationality}</p>
+                            <p className="text-gray-700 dark:text-gray-300"><span className="font-medium text-gray-800 dark:text-white">Age:</span> {incident.tourist.age}</p>
+                            <p className="text-gray-700 dark:text-gray-300"><span className="font-medium text-gray-800 dark:text-white">Blood Type:</span> {incident.tourist.bloodType}</p>
+                            <p className="text-gray-700 dark:text-gray-300"><span className="font-medium text-gray-800 dark:text-white">Allergies:</span> {incident.tourist.allergies}</p>
                             
                             <div className="flex gap-2 mt-3">
                               <button className="flex items-center gap-1 text-blue-600 dark:text-blue-400 text-sm">
@@ -607,17 +607,17 @@ const EFIRSection = () => {
                         
                         {/* Response Team Information */}
                         <div>
-                          <h5 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Response Team</h5>
+                          <h5 className="font-medium text-gray-800 dark:text-white mb-2">Response Team</h5>
                           <div className="space-y-2 text-sm">
-                            <p><span className="font-medium">Status:</span> {incident.responseTeam.status}</p>
-                            <p><span className="font-medium">ETA:</span> {incident.responseTeam.eta}</p>
+                            <p className="text-gray-700 dark:text-gray-300"><span className="font-medium text-gray-800 dark:text-white">Status:</span> {incident.responseTeam.status}</p>
+                            <p className="text-gray-700 dark:text-gray-300"><span className="font-medium text-gray-800 dark:text-white">ETA:</span> {incident.responseTeam.eta}</p>
                             
                             {incident.responseTeam.assigned && (
                               <>
-                                <p><span className="font-medium">Team ID:</span> {incident.responseTeam.teamId}</p>
+                                <p className="text-gray-700 dark:text-gray-300"><span className="font-medium text-gray-800 dark:text-white">Team ID:</span> {incident.responseTeam.teamId}</p>
                                 <div>
-                                  <span className="font-medium">Members:</span>
-                                  <ul className="list-disc list-inside ml-4">
+                                  <span className="font-medium text-gray-800 dark:text-white">Members:</span>
+                                  <ul className="list-disc list-inside ml-4 text-gray-700 dark:text-gray-300">
                                     {incident.responseTeam.members.map((member, index) => (
                                       <li key={index}>{member}</li>
                                     ))}
@@ -639,7 +639,7 @@ const EFIRSection = () => {
                       {/* Updates Timeline */}
                       <div className="mt-6">
                         <div className="flex justify-between items-center mb-3">
-                          <h5 className="font-medium text-gray-700 dark:text-gray-300">Updates</h5>
+                          <h5 className="font-medium text-gray-800 dark:text-white">Updates</h5>
                           <button 
                             onClick={() => handleAddUpdate(incident.id, 'New update added')}
                             className="text-blue-600 dark:text-blue-400 text-sm flex items-center gap-1"
@@ -658,8 +658,8 @@ const EFIRSection = () => {
                                 )}
                               </div>
                               <div className="flex-1">
-                                <p className="text-sm font-medium">{update.message}</p>
-                                <p className="text-xs text-gray-500 dark:text-gray-400">
+                                <p className="text-sm font-medium text-gray-800 dark:text-white">{update.message}</p>
+                                <p className="text-xs text-gray-600 dark:text-gray-400">
                                   {update.timestamp} • {update.officer}
                                 </p>
                               </div>
