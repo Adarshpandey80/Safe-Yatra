@@ -1,5 +1,8 @@
 // Dashboard.jsx
 import React from 'react';
+import StatCard from './common/StatCard';
+import AlertsFeed from './common/AlertsFeed';
+import RiskHeatmapPreview from './common/RiskHeatmapPreview';
 import { 
   Users, 
   AlertTriangle, 
@@ -10,9 +13,7 @@ import {
   Clock,
   Zap
 } from 'lucide-react';
-import StatCard from './common/StatCard';
-import AlertsFeed from './common/AlertsFeed';
-import RiskHeatmapPreview from './common/RiskHeatmapPreview';
+
 
 const Dashboard = () => {
   const stats = [
