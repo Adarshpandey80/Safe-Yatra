@@ -19,7 +19,7 @@ const Header = ({ setSidebarOpen }) => {
           
           
             <div className='flex items-center gap-0 '>
-                  <img src="./public/newlogo.png" alt=""  className="h-30 w-30 text-blue-600 dark:text-blue-400" />
+                  <img src="/newlogo.png" alt=""  className="h-30 w-30 text-blue-600 dark:text-blue-400" />
                   <div>
                        <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Safe-Yatra</h1>
                        <p className="text-sm text-gray-600 dark:text-gray-400">Real-time tourist safety monitoring</p>
